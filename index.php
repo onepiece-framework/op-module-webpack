@@ -15,11 +15,8 @@
  */
 namespace OP;
 
-/* @var $app \OP\UNIT\App */
-$app = Unit('App');
-
 //	Get extension from smart url.
-if(!$ext = $app->Args()[0] ?? null ){
+if(!$ext = Args()[0] ?? null ){
 	return;
 }
 
