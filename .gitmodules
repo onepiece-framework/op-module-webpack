@@ -1,4 +1,0 @@
-[submodule "js/op"]
-	path = js/op
-	url = https://github.com/onepiece-framework/app-webpack-js.git
-	branch = 2021
