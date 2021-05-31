@@ -27,7 +27,8 @@ switch( $ext ){
 	case 'js':
 	case 'css':
 		//	...
-		$app_path = __DIR__."/{$ext}/action.php";
+		$app_path = RootPath('asset')."webpack/{$ext}/action.php";
+	//	$app_path = __DIR__."/{$ext}/action.php";
 
 		//	...
 		$layout = Config::Get('layout');
