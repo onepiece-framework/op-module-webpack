@@ -20,7 +20,7 @@ if(!$ext = Args()[0] ?? null ){
 }
 
 //	Get layout name.
-$layout = Layout();
+$layout = Unit('Layout')->Name();
 
 //	Generate MIME.
 Load('GetMimeFromExtension');
@@ -30,7 +30,7 @@ if( $mime = GetMimeFromExtension($ext) ){
 	Env::Mime($mime);
 
 	//	Disable layout.
-	Layout(false);
+	Unit('Layout')->Auto();
 }
 
 /* @var $webpack \OP\UNIT\WebPack */
