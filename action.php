@@ -1,6 +1,5 @@
 <?php
-/**
- * op-module-webpack:/action.php
+/** op-module-webpack:/action.php
  *
  * @created   2019-05-09  Separate from index.php.
  * @version   1.0

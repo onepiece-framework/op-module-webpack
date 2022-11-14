@@ -1,6 +1,5 @@
 <?php
-/**
- * op-module-webpack:/index.php
+/** op-module-webpack:/index.php
  *
  * @created   2018-04-12
  * @version   1.0
