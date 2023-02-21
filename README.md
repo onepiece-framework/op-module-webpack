@@ -4,5 +4,6 @@ WebPack for onepiece-framework
 # Usage
 
 ```php
-Unit('WebPack')->Auto(__DIR__.'/index.css');
+OP()->Unit('WebPack')->Auto('file_name.js');
+OP()->Unit('WebPack')->Auto('file_name.css');
 ```
