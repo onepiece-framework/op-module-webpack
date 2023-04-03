@@ -30,7 +30,7 @@ if( $mime = GetMimeFromExtension($ext) ){
 	Env::Mime($mime);
 
 	//	Disable layout.
-	Unit('Layout')->Auto();
+//	Unit('Layout')->Auto();
 }
 
 /* @var $webpack \OP\UNIT\WebPack */
