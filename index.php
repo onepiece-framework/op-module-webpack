@@ -8,12 +8,18 @@
  * @copyright Tomoaki Nagahara All right reserved.
  */
 
+/** Declare strict
+ *
+ */
+declare(strict_types=1);
+
 /** namespace
  *
  * @created   2019-02-25
  */
 namespace OP;
 
+/*
 //	Get extension from smart url.
 if(!$ext = Args()[0] ?? null ){
 	return;
@@ -32,25 +38,32 @@ if( $mime = GetMimeFromExtension($ext) ){
 	//	Disable layout.
 	Unit('Layout')->Auto();
 }
+*/
 
 /* @var $webpack \OP\UNIT\WebPack */
-if( $webpack = Unit('WebPack') ){
+if( $webpack = OP()->Unit('WebPack') ){
+	//	Register test for admin.
+	if( Env::isAdmin() ){
+		$webpack->Auto('./sample/','sample/sample.js','sample/sample.css');
+	}
+
 	//	Output packing string.
-	$webpack->Out($ext);
+	$webpack->Auto();
 };
 
 //	...
 if( Env::isAdmin() ){
 	//	...
-	$datetime = date(_OP_DATE_TIME_);
+	$timestamp = date(_OP_DATE_TIME_);
+	$layout    = OP()->Layout();
 
 	//	...
-	switch( $ext ){
-		case 'js':
-			echo "console.log('WebPack was successful. {$datetime}, {$layout}');\n";
+	switch( Env::MIME() ){
+		case 'text/javascript':
+			echo "\n\nconsole.log('WebPack was successful. {$timestamp}, {$layout}');\n";
 			break;
-		case 'css':
-			echo "/* WebPack was successful. {$datetime}, {$layout}') */\n";
+		case 'text/css':
+			echo "\n\n/* WebPack was successful. {$timestamp}, {$layout}') */\n";
 			break;
 		default:
 	};
