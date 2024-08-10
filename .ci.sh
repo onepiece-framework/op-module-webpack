@@ -6,7 +6,6 @@
  # @created    2022-10-31
  # @updated    2023-02-09 v2.0
  # @updated    2023-02-14 v2.1
- # @updated    2023-04-13 v2.2
  # @version    2.2.0
  # @package    op-core
  # @author     Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
@@ -18,7 +17,7 @@ COMMAND=$(ps -ocommand= -p $PPID)
 # Parse
 ARRAY=(${COMMAND//,/ })
 REMOTE=${ARRAY[2]}
-BRANCH=${ARRAY[3]}
+BRANCH=`git rev-parse --abbrev-ref HEAD`
 PHP=`php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;"`
 
 # Get current branch name
@@ -54,7 +53,7 @@ COMMIT_ID=`git rev-parse $BRANCH`
 #echo $COMMIT_ID
 
 #
-if [ $COMMIT_ID != $CI_COMMIT_ID ]; then
+if [ "$COMMIT_ID" != "$CI_COMMIT_ID" ]; then
   echo "ci.sh: Unmatch commit id"
   echo $COMMIT_ID branch=$BRANCH
   echo $CI_COMMIT_ID $CI_FILE
